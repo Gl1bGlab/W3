@@ -1,11 +1,42 @@
 ﻿using System;
+using System.IO;
+using System.IO.Enumeration;
 
 namespace w3
 {
+    
+
     class W3Notes
     {
+        static public void Nerd()
+        {
+            File.Delete("filename.txt");
+            bool fileExist = File.Exists("filename.txt");
+            Console.WriteLine(fileExist);
+            string writeText = "Hello World!";
+            File.WriteAllText("filename.txt", writeText);
+            string readText = File.ReadAllText("filename.txt");
+            Console.WriteLine(readText);
+            fileExist = File.Exists("filename.txt");
+            Console.WriteLine(fileExist);
+        }
+        static void checkAge(int age)
+        {
+            if (age < 18)
+            {
+                throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+            }
+            else
+            {
+                Console.WriteLine("Access granted - You are old enough!");
+            }
+        }
+
         static void Main(string[] args)
         {
+            //Nerd();
+
+
             //                                                                                          Auto Casting
             /*int myInt = 9;
             double myDouble = myInt;
@@ -661,12 +692,46 @@ namespace w3
             }*/
 
 
-            //                                                                                                  Files
-            /*
+            //                                                                                          Files
+            /*The File class exists in the System.IO namespace
+            
+            Methods:
+            AppendText()    Appends text at the end of an existing file
+            Copy()          Copies a file
+            Create()        Creates or overwrites a file
+            Delete()        Deletes a file
+            Exists()        Tests whether the file exists
+            ReadAllText()   Reads the contents of a file
+            Replace()       Replaces the contents of a file with the contents of another file
+            WriteAllText()  Creates a new file and writes the contents to it and if the file already exists, it will be overwritten*/
 
-            blehg
-            thhtrhtrytkjytfd
+
+            //                                                                                          Exceptions
+            /*Exceptions are the C# equivilent of errors
+
+            try         Runs a block of code to test for errors
+            catch       Runs a block of code if there is an error in try
+            throw       Allows you to create a custom error
+            finally     Runs a block of code after try and catch are done
+
+            try
+            {
+                int myNumbers = Convert.ToInt16(Console.ReadLine());
+                Console.WriteLine(myNumbers);
+                checkAge(myNumbers);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+            }
+            finally
+            {
+                Console.WriteLine("Done");
+            }
             */
+
         }
+
     }
 }
